@@ -1,0 +1,80 @@
+<head>
+	<title>Facebook Forum</title>
+</head>
+<template name="topbar">
+	<div style="background-color:#4c66a4;">
+		<div class="container">
+			<br>
+			<div class="pull-right" style="height:45px;cursor:pointer;">
+				{{#if currentUser}}
+				<div class="logout" style="color:#ddd;text-align:center;">
+					<img src="//graph.facebook.com/{{currentUser.services.facebook.id}}/picture" style="margin-bottom: 6px;">
+					<br>
+					<div>
+						Log out?
+					</div>
+				</div>
+				{{else}}
+				<button class="btn btn-primary btn-large login" style="background:none">
+					<i class="icon-user icon-white"></i>&nbsp; Log in
+				</button>
+				{{/if}}
+			</div>
+			<div class="clearfix"></div>
+			<br>
+			<center style="margin-top:-50px;">
+				<a href="/" style="color:white;text-decoration: none"><h2 style="display: inline-block">Facebook Forum</h2></a>
+			</center>
+			<br>
+		</div>
+	</div>
+</template>
+<template name="home">
+	{{>topbar}}
+	<div class="container home">
+		<br>
+		<div class="row post-topic-container">
+			<div class="span6 offset3">
+				<textarea {{#unless currentUser}}disabled="true"{{/unless}} rows="4" style="resize:none;width:100%;" placeholder="What topic's on you mind?"></textarea>
+			</div>
+			<div class="span" align="center">
+				<br>
+				<button class="btn btn-primary hide post-topic" style="background-color:#4c66a4; background-image: none; vertical-align: middle;">
+					Post Topic
+				</button>
+			</div>
+		</div>
+		<br>
+		{{#each posts}}
+		{{>post}}
+		{{/each}}
+	</div>
+</template>
+<template name="postpage">
+	{{>topbar}}
+	<div class="container">
+		{{#with currentPost}}
+		<div class="pull-right like-positioning">
+			<div class="like-button{{#if hasLiked}} liked{{/if}}" style="margin-top:35px;display:inline-block;cursor:pointer;font-size:18px;padding:5px;">
+				<div style="height:30px;margin-left:15px">
+					Liked
+				</div><img src="/Facebook_like_thumb2.png">
+			</div>
+		</div>
+		<center style="margin-left:-20px;">
+			{{>post}}
+		</center>
+
+		{{#each comments}}
+		{{>comment}}
+		{{/each}}
+
+		<div class="span6 offset3">
+			<br>
+			<br>
+			<br>
+			<textarea {{#unless currentUser}}disabled="true"{{/unless}} rows="3" style="resize:none;width:100%;" placeholder="Write a comment..."></textarea>
+		</div>
+		{{/with}}
+	</div>
+</template>

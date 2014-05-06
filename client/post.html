@@ -1,0 +1,38 @@
+<template name="post">
+	<div class="row">
+		<div class="span6 offset3" >
+			<div class="row-fluid whole-post" style="text-align:left;border-color: rgb(238, 238, 238) rgb(221, 221, 221) rgb(187, 187, 187);border-width: 1px;border-style: solid;box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 3px;padding:10px;margin-top: 25px;border-radius:5px;margin-left:-10%;margin-right:-10%;width:120%;">
+				<div class="span2" style="width:8%;"><img src="//graph.facebook.com/{{this.author.fb_id}}/picture">
+				</div>
+				<div class="span10" style="overflow: hidden">
+					<div style="color:#666">
+						{{author.name}}
+					</div>
+					<div style="font-size:18px;margin-top:5px;height:45px">
+						{{text}}
+					</div>
+					<div><i class="icon-thumbs-up"></i> {{likes.length}} &nbsp;&nbsp;<i class="icon-comment"></i> {{comments.length}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="comment">
+	<div class="row whole-post">
+		<div class="span6 offset3" >
+			<div class="row-fluid whole-comment" style="background-color: rgb(237, 239, 244);text-align:left;border-color: rgb(238, 238, 238) rgb(221, 221, 221) rgb(187, 187, 187);border-width: 1px;border-style: solid;box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 3px;padding:10px;margin-top: 25px;border-radius:5px;margin-left:-5%;margin-right:-5%;width:110%;">
+				<div class="span2" style="width:8%;"><img src="//graph.facebook.com/{{this.author.fb_id}}/picture">
+				</div>
+				<div class="span10" style="overflow: hidden">
+					<div style="color:#666">
+						{{author.name}}
+					</div>
+					<div style="font-size:18px;margin-top:5px;height:45px">
+						{{text}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

@@ -1,0 +1,53 @@
+.home .whole-post {
+	cursor: pointer;
+}
+.like-button div {
+	visibility: hidden;
+}
+.like-button.liked div {
+	visibility: visible;
+}
+.like-button.liked {
+	background-color: #d8dfea;
+}
+.like-positioning {
+	width: 170px;
+}
+@media (max-width: 979px) and (min-width: 768px) {
+	.like-positioning {
+		width: 125px;
+	}
+}
+@media (min-width: 1200px) {
+	.like-positioning {
+		width: 220px;
+	}
+}
+@media (max-width: 767px) {
+	.like-positioning {
+		width: 120px;
+		position: absolute;
+		right: 20px;
+	}
+	.span2 {
+		width: 8% !important;
+		display: inline-block !important;
+		vertical-align: top !important;
+		margin-right: 2%;
+	}
+	.span10 {
+		display: inline-block !important;
+		width: auto !important;
+	}
+	.whole-post {
+		width: auto !important;
+		margin-left: 4% !important;
+		margin-right: 4% !important;
+		min-height: 110px;
+	}
+	.whole-comment {
+		width: auto !important;
+		margin-left: 8% !important;
+		margin-right: 8% !important;
+	}
+}
